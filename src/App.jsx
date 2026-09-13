@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { ArrowRight, CalendarDays, ChevronDown, Flag, Mail, MapPin, Menu, RefreshCw, Trophy, X } from 'lucide-react';
+import { ArrowRight, CalendarDays, ChevronDown, ClipboardList, Flag, Mail, MapPin, Menu, RefreshCw, Trophy, X } from 'lucide-react';
 import { tournament as t } from './data/tournament';
 
 const tabs = ['Leaderboard', 'Skins', 'Pin prizes'];
@@ -72,14 +72,14 @@ export default function App() {
         <p>A weekend of competition, camaraderie, and bragging rights in southeast Michigan.</p>
         <div className="hero-actions"><a className="button primary" href="#event">Explore the weekend <ArrowRight size={18}/></a><a className="text-link" href="#scoreboard">View 2025 results</a></div>
       </div>
-      <div className="hero-facts"><div><CalendarDays/><span><small>When</small>{t.event.dates}</span></div><div><MapPin/><span><small>Where</small>{t.event.location}</span></div><div><Trophy/><span><small>Status</small>{t.status}</span></div></div>
+      <div className="hero-facts"><div><CalendarDays/><span><small>When</small>{t.event.dates}</span></div><div><MapPin/><span><small>Where</small>{t.event.location}</span></div><div><Trophy/><span><small>Status</small>{t.status}</span></div><div><ClipboardList/><span><small>Registration</small><a href={t.registrationUrl} target="_blank" rel="noreferrer">Register here</a></span></div></div>
     </section>
 
     <section className="intro section" id="event"><div className="intro-copy"><span className="eyebrow">More than a tournament</span><h2>A downriver tradition,<br/>built one round at a time.</h2><p>The Dirty Downriver Classic brings friends together for a full weekend of fair competition and questionable decisions off the tee. Seasoned player or weekend golfer, there’s a game—and a story—for everyone.</p></div>
       <div className="stats">{t.highlights.map(x => <div key={x.label}><strong>{x.value}</strong><span>{x.label}</span></div>)}</div>
     </section>
 
-    <section className="weekend section"><div className="section-heading"><div><span className="eyebrow">The weekend</span><h2>Three rounds. One champion.</h2></div><p>{t.event.format}</p></div>
+    <section className="weekend section"><div className="section-heading"><div><span className="eyebrow">The weekend</span><h2>27 holess. One champion.</h2></div><p>{t.event.format}</p></div>
       <div className="schedule-list">{t.schedule.map((s, i) => <article key={s.day}><span className="round-number">0{i+1}</span><div><small>{s.day}</small><h3>{s.label}</h3><p>{s.detail}</p></div><ChevronDown/></article>)}</div>
     </section>
 
@@ -87,10 +87,10 @@ export default function App() {
 
     <section className="games section"><div className="section-heading"><div><span className="eyebrow">More ways to win</span><h2>Every shot has a story.</h2></div></div><div className="game-grid">{t.games.map((g, i) => <article key={g.title}><span>{String(i+1).padStart(2,'0')}</span><h3>{g.title}</h3><p>{g.text}</p></article>)}</div></section>
 
-    <section className="courses section" id="courses"><div className="section-heading"><div><span className="eyebrow">Where we play</span><h2>Two courses. Two tests.</h2></div></div><div className="course-grid">{t.courses.map(c => <a href={c.url} target="_blank" rel="noreferrer" key={c.name}><img src={c.image} alt={`${c.name} golf course`} /><div><small>{c.location}</small><h3>{c.name}</h3><span>Visit course <ArrowRight size={16}/></span></div></a>)}</div></section>
+    <section className="courses section" id="courses"><div className="section-heading"><div><span className="eyebrow">Where we play</span><h2>One course. 27 hole test.</h2></div></div><div className="course-grid">{t.courses.map(c => <a href={c.url} target="_blank" rel="noreferrer" key={c.name}><img src={c.image} alt={`${c.name} golf course`} /><div><small>{c.location}</small><h3>{c.name}</h3><span>Visit course <ArrowRight size={16}/></span></div></a>)}</div></section>
 
     <section className="history section" id="history"><div className="history-photo"><img src="./assets/trophy.jpg" alt="Dirty Downriver Classic trophy" /></div><div className="history-copy"><span className="eyebrow">Past champions</span><h2>The names on the trophy.</h2><p>Every year adds another chapter. Here’s to the players who found a way to finish on top.</p>{t.champions.map(c => <div className="champion" key={c.year}><strong>{c.year}</strong><img src={c.image} alt=""/><span>{c.name}<small>{c.score}</small></span></div>)}</div></section>
 
-    <section className="cta section" id="contact"><img src="./assets/DDRClassic.PNG" alt="Dirty Downriver Classic logo"/><div><span className="eyebrow">Stay in the loop</span><h2>Ready for the next round?</h2><p>Get tournament dates, registration news, tee times, and scoring updates from the organizer.</p></div><a className="button primary" href={`mailto:${t.organizerEmail}?subject=Dirty Downriver Classic updates`}><Mail size={18}/> Get event updates</a></section>
+    <section className="cta section" id="contact"><img src="./assets/DDRClassic.PNG" alt="Dirty Downriver Classic logo"/><div><span className="eyebrow">Stay in the loop</span><h2>Ready for the next round?</h2><p>Get tournament dates, registration news, tee times, and scoring updates from the organizer.</p></div><a className="button primary" href={t.registrationUrl} target="_blank" rel="noreferrer"><Mail size={18}/> Get event updates</a></section>
   </main><footer><span>Dirty Downriver Classic · Est. 2022</span><span>Golf. Friends. Downriver.</span></footer></>;
 }
