@@ -13,7 +13,7 @@ export const tournament = {
   event: {
     dates: 'September 27th, 2026',
     location: 'Southeast Michigan',
-    price: '$140 tournament entry',
+    price: 'TBD tournament entry',
     format: '27 holes · 80% handicap · individual net stroke play',
   },
   schedule: [
@@ -21,7 +21,7 @@ export const tournament = {
     // { day: 'Saturday PM', label: 'Two-person scramble', detail: '9 holes · choose your partner' },
     { day: 'Sunday', label: 'First round', detail: '18 holes - Tee Times Starting approx. 11:15am' },
     { day: 'Sunday', label: 'Final 9', detail: '9 holes - Tee Times Starting approx. 3:30pm' },
-    { day: 'Sunday', label: 'Awards', detail: 'Awards immediately following play at the Luna Household' },
+    { day: 'Sunday', label: 'Awards', detail: 'Awards immediately following play at the Luna Household (8374 Lasalle Ct., Grosse Ile, MI 48138)' },
   ],
   courses: [
     // { name: 'Huntmore Golf Club', location: 'Brighton, Michigan', image: './assets/huntmore.jpg', url: 'https://www.huntmoregolfclub.com' },

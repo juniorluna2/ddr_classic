@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { ArrowRight, CalendarDays, ChevronDown, ClipboardList, Flag, Mail, MapPin, Menu, RefreshCw, Trophy, X } from 'lucide-react';
+import { ArrowRight, CalendarDays, ChevronDown, DollarSign, Flag, Mail, MapPin, Menu, RefreshCw, Trophy, X } from 'lucide-react';
 import { tournament as t } from './data/tournament';
 
 const tabs = ['Leaderboard', 'Skins', 'Pin prizes'];
@@ -72,7 +72,7 @@ export default function App() {
         <p>A weekend of competition, camaraderie, and bragging rights in southeast Michigan.</p>
         <div className="hero-actions"><a className="button primary" href="#event">Explore the weekend <ArrowRight size={18}/></a><a className="text-link" href="#scoreboard">View 2025 results</a></div>
       </div>
-      <div className="hero-facts"><div><CalendarDays/><span><small>When</small>{t.event.dates}</span></div><div><MapPin/><span><small>Where</small>{t.event.location}</span></div><div><Trophy/><span><small>Status</small>{t.status}</span></div><div><ClipboardList/><span><small>Registration</small><a href={t.registrationUrl} target="_blank" rel="noreferrer">Register here</a></span></div></div>
+      <div className="hero-facts"><div><CalendarDays/><span><small>When</small>{t.event.dates}</span></div><div><MapPin/><span><small>Where</small>{t.event.location}</span></div><div><Trophy/><span><small>Status</small>{t.status} · <a href={t.registrationUrl} target="_blank" rel="noreferrer">Register here</a></span></div><div><DollarSign/><span><small>Entry fee</small>{t.event.price}</span></div></div>
     </section>
 
     <section className="intro section" id="event"><div className="intro-copy"><span className="eyebrow">More than a tournament</span><h2>A downriver tradition,<br/>built one round at a time.</h2><p>The Dirty Downriver Classic brings friends together for a full weekend of fair competition and questionable decisions off the tee. Seasoned player or weekend golfer, there’s a game—and a story—for everyone.</p></div>
