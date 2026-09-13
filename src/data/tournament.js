@@ -2,41 +2,44 @@
 export const tournament = {
   year: 2026,
   edition: '5th Annual',
-  status: 'Dates coming soon',
+  status: 'Registration Open',
   registrationOpen: false,
-  registrationUrl: 'https://forms.gle/NJ6SQAXJKvh31wvEA',
+  registrationUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSe0DMNF6zFmXJ2kWulpGRmzHR3OgvROvd_Btg-9K-AwYajXCA/viewform?usp=publish-editor',
   organizerEmail: 'juniorluna2@gmail.com',
   // Optional: paste a published CSV URL from Google Sheets for live scores.
   // Required headers: name,handicap,round1,round2,thru
   liveScoringUrl: '',
   liveRefreshSeconds: 30,
   event: {
-    dates: 'Fall 2026',
+    dates: 'September 27th, 2026',
     location: 'Southeast Michigan',
     price: '$140 tournament entry',
-    format: '36 holes · 80% handicap · individual net stroke play',
+    format: '27 holes · 80% handicap · individual net stroke play',
   },
   schedule: [
-    { day: 'Saturday', label: 'Opening round', detail: '18-hole individual competition · course and tee times coming soon' },
-    { day: 'Saturday PM', label: 'Two-person scramble', detail: '9 holes · choose your partner' },
-    { day: 'Sunday', label: 'Final round + awards', detail: '18 holes · awards immediately following play' },
+    // { day: 'Saturday', label: 'Opening round', detail: '18-hole individual competition · course and tee times coming soon' },
+    // { day: 'Saturday PM', label: 'Two-person scramble', detail: '9 holes · choose your partner' },
+    { day: 'Sunday', label: 'First round', detail: '18 holes - Tee Times Starting approx. 11:15am' },
+    { day: 'Sunday', label: 'Final 9', detail: '9 holes - Tee Times Starting approx. 3:30pm' },
+    { day: 'Sunday', label: 'Awards', detail: 'Awards immediately following play at the Luna Household' },
   ],
   courses: [
-    { name: 'Huntmore Golf Club', location: 'Brighton, Michigan', image: './assets/huntmore.jpg', url: 'https://www.huntmoregolfclub.com' },
+    // { name: 'Huntmore Golf Club', location: 'Brighton, Michigan', image: './assets/huntmore.jpg', url: 'https://www.huntmoregolfclub.com' },
     { name: 'West Shore Golf & Country Club', location: 'Grosse Ile, Michigan', image: './assets/west_shore.jpg', url: 'https://www.westshoregcc.com' },
   ],
   highlights: [
     { label: 'Individual', value: '80% net' },
-    { label: 'Weekend', value: '45 holes' },
-    { label: 'Side games', value: 'Skins + pins' },
+    { label: 'Weekend', value: '27 holes' },
+    { label: 'Side games', value: 'Skins, pins + long drive' },
     { label: 'Tradition', value: 'Since 2022' },
   ],
   games: [
+    { title: 'Net Champion', text: 'Lowest net score over 27 holes.' },
     { title: 'Net skins', text: 'A separate skins pot for each 18-hole round. Ties on a hole cancel the skin.' },
     { title: 'Closest to the pin', text: 'Every par 3 is in play. Winners are tracked by round and hole.' },
     { title: 'Longest drive', text: 'Two designated holes each round — one on each nine.' },
     { title: 'Team net', text: 'Committee-selected pairs compete for the lowest combined net score.' },
-    { title: 'Two-person scramble', text: 'Saturday afternoon’s nine-hole side event. Pick your partner and go low.' },
+    // { title: 'Two-person scramble', text: 'Saturday afternoon’s nine-hole side event. Pick your partner and go low.' },
   ],
   leaderboard: [
     { name: 'Chris Trela', handicap: 7.0, round1: 73, round2: 71, total: 144, toPar: 1, note: 'Won playoff' },
@@ -69,6 +72,8 @@ export const tournament = {
   ],
   champions: [
     { year: 2025, name: 'Chris Trela', score: '+1', image: './assets/winner_2025.jpg' },
-    { year: 2022, name: 'DDR Classic Champion', score: 'Inaugural year', image: './assets/winner_2022.jpg' },
+    { year: 2024, name: 'Al Cyster', score: 'E', image: './assets/winner_2024.jpg' },
+    { year: 2023, name: 'Tyler Bozynski', score: 'E', image: './assets/winner_2023.jpg' },
+    { year: 2022, name: 'Raul Luna', score: '-1', image: './assets/winner_2022.jpg' },
   ],
 };
