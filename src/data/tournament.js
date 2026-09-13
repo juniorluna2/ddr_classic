@@ -11,16 +11,16 @@ export const tournament = {
   liveScoringUrl: '',
   liveRefreshSeconds: 30,
   event: {
-    dates: 'September 27th, 2026',
+    dates: 'September 25th - 27th, 2026',
     location: 'Southeast Michigan',
     price: 'TBD tournament entry',
-    format: '27 holes · 80% handicap · individual net stroke play',
+    format: '36 holes · 80% handicap · Individual Net Stroke Play',
   },
   schedule: [
+    { day: 'Friday', label: 'Opening round', detail: '18 holes - Tee Times Starting approx. 2:00pm' },
     // { day: 'Saturday', label: 'Opening round', detail: '18-hole individual competition · course and tee times coming soon' },
     // { day: 'Saturday PM', label: 'Two-person scramble', detail: '9 holes · choose your partner' },
-    { day: 'Sunday', label: 'First round', detail: '18 holes - Tee Times Starting approx. 11:15am' },
-    { day: 'Sunday', label: 'Final 9', detail: '9 holes - Tee Times Starting approx. 3:30pm' },
+    { day: 'Sunday', label: 'Final round', detail: '18 holes - Tee Times Starting approx. 12:30pm' },
     { day: 'Sunday', label: 'Awards', detail: 'Awards immediately following play at the Luna Household (8374 Lasalle Ct., Grosse Ile, MI 48138)' },
   ],
   courses: [
@@ -29,12 +29,12 @@ export const tournament = {
   ],
   highlights: [
     { label: 'Individual', value: '80% net' },
-    { label: 'Weekend', value: '27 holes' },
+    { label: 'Weekend', value: '36 holes' },
     { label: 'Side games', value: 'Skins, pins + long drive' },
     { label: 'Tradition', value: 'Since 2022' },
   ],
   games: [
-    { title: 'Net Champion', text: 'Lowest net score over 27 holes.' },
+    { title: 'Net Champion', text: 'Lowest net score over 36 holes.' },
     { title: 'Net skins', text: 'A separate skins pot for each 18-hole round. Ties on a hole cancel the skin.' },
     { title: 'Closest to the pin', text: 'Every par 3 is in play. Winners are tracked by round and hole.' },
     { title: 'Longest drive', text: 'Two designated holes each round — one on each nine.' },
@@ -71,9 +71,9 @@ export const tournament = {
     { time: '10:40 AM', players: ['Raul Luna', 'Tyler Bozynski', 'Dillon Dossey', 'Alex Nicol'] },
   ],
   champions: [
-    { year: 2025, name: 'Chris Trela', score: '+1', image: './assets/winner_2025.jpg' },
-    { year: 2024, name: 'Al Cyster', score: 'E', image: './assets/winner_2024.jpg' },
-    { year: 2023, name: 'Tyler Bozynski', score: 'E', image: './assets/winner_2023.jpg' },
-    { year: 2022, name: 'Raul Luna', score: '-1', image: './assets/winner_2022.jpg' },
+    { year: 2025, name: 'Chris Trela', score: '144 (+2)', image: './assets/winner_2025.jpg' },
+    { year: 2024, name: 'Al Cyster', score: '148 (+5)', image: './assets/winner_2024.jpg' },
+    { year: 2023, name: 'Tyler Bozynski', score: '143 (E)', image: './assets/winner_2023.jpg' },
+    { year: 2022, name: 'Raul Luna', score: '142 (-1)', image: './assets/winner_2022.jpg' },
   ],
 };

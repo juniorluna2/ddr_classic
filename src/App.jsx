@@ -79,7 +79,7 @@ export default function App() {
       <div className="stats">{t.highlights.map(x => <div key={x.label}><strong>{x.value}</strong><span>{x.label}</span></div>)}</div>
     </section>
 
-    <section className="weekend section"><div className="section-heading"><div><span className="eyebrow">The weekend</span><h2>27 holess. One champion.</h2></div><p>{t.event.format}</p></div>
+    <section className="weekend section"><div className="section-heading"><div><span className="eyebrow">The weekend</span><h2>36 holes. One champion.</h2></div><p>{t.event.format}</p></div>
       <div className="schedule-list">{t.schedule.map((s, i) => <article key={s.day}><span className="round-number">0{i+1}</span><div><small>{s.day}</small><h3>{s.label}</h3><p>{s.detail}</p></div><ChevronDown/></article>)}</div>
     </section>
 
@@ -87,7 +87,7 @@ export default function App() {
 
     <section className="games section"><div className="section-heading"><div><span className="eyebrow">More ways to win</span><h2>Every shot has a story.</h2></div></div><div className="game-grid">{t.games.map((g, i) => <article key={g.title}><span>{String(i+1).padStart(2,'0')}</span><h3>{g.title}</h3><p>{g.text}</p></article>)}</div></section>
 
-    <section className="courses section" id="courses"><div className="section-heading"><div><span className="eyebrow">Where we play</span><h2>One course. 27 hole test.</h2></div></div><div className="course-grid">{t.courses.map(c => <a href={c.url} target="_blank" rel="noreferrer" key={c.name}><img src={c.image} alt={`${c.name} golf course`} /><div><small>{c.location}</small><h3>{c.name}</h3><span>Visit course <ArrowRight size={16}/></span></div></a>)}</div></section>
+    <section className="courses section" id="courses"><div className="section-heading"><div><span className="eyebrow">Where we play</span><h2>One course. 36 hole test.</h2></div></div><div className="course-grid">{t.courses.map(c => <a href={c.url} target="_blank" rel="noreferrer" key={c.name}><img src={c.image} alt={`${c.name} golf course`} /><div><small>{c.location}</small><h3>{c.name}</h3><span>Visit course <ArrowRight size={16}/></span></div></a>)}</div></section>
 
     <section className="history section" id="history"><div className="history-photo"><img src="./assets/trophy.jpg" alt="Dirty Downriver Classic trophy" /></div><div className="history-copy"><span className="eyebrow">Past champions</span><h2>The names on the trophy.</h2><p>Every year adds another chapter. Here’s to the players who found a way to finish on top.</p>{t.champions.map(c => <div className="champion" key={c.year}><strong>{c.year}</strong><img src={c.image} alt=""/><span>{c.name}<small>{c.score}</small></span></div>)}</div></section>
 
