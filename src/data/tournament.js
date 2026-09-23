@@ -77,3 +77,59 @@ export const tournament = {
     { year: 2022, name: 'Raul Luna', score: '142 (-1)', image: './assets/winner_2022.jpg' },
   ],
 };
+
+// COMPETITION ARCHIVE — add a new year here to make it appear in the dropdown.
+export const competitionYears = {
+  2026: {
+    status: 'upcoming', label: '2026 Tournament', leaderboard: [],
+    prizes: [
+      { category: 'Tournament champion', detail: 'Winner and payout to be announced' },
+      { category: 'Net skins', detail: 'Hole winners and skin values to be announced' },
+      { category: 'Closest to the pin', detail: 'Winning holes and players to be announced' },
+      { category: 'Longest drive', detail: 'Winning holes and players to be announced' },
+      { category: 'Team net', detail: 'Winning team and payout to be announced' },
+    ],
+    teeTimeGroups: [
+      { label: 'Friday opening round', course: 'West Shore Golf & Country Club', rows: [
+        { time: '2:00 PM', players: [ 'Golfer 1', 'Golfer 2', 'Golfer 3', 'Golfer 4']},
+        { time: '2:10 PM', players: [ 'Golfer 1', 'Golfer 2', 'Golfer 3', 'Golfer 4']},
+      ]},
+      { label: 'Sunday final round', course: 'West Shore Golf & Country Club', rows: [
+        { time: '12:10 PM', players: [ 'Golfer 1', 'Golfer 2', 'Golfer 3', 'Golfer 4']},
+        { time: '12:20 PM', players: [ 'Golfer 1', 'Golfer 2', 'Golfer 3', 'Golfer 4']},
+      ] },
+    ],
+  },
+  2025: {
+    status: 'final', label: '2025 Final Results', leaderboard: tournament.leaderboard,
+    prizes: [
+      { category: 'Tournament champion', detail: 'Chris Trela · 144 (+2) · $140', winner: true },
+      { category: 'Round 1 closest to the pin', detail: 'Hole 3 Raul Luna · Hole 7 Al Cyster · Hole 12 Chris Trela · Hole 15 Tony Monaco' },
+      { category: 'Round 1 skins', detail: 'Matthew Kosiba $176 · Joe O’Connor $88 · Raul Luna $88 · Tyler Bozynski $88' },
+      { category: 'Round 1 team net', detail: 'Raul Luna & Tyler Bozynski · 65 · $50/team' },
+      { category: 'Round 1 longest drive', detail: 'Hole 5 Adam Murray · Hole 17 Tyler Bozynski' },
+      { category: 'Scramble', detail: '1st Team Loner $100 · 2nd Team Swinger Squared $60 · 3rd Team Lancy Underall $40' },
+      { category: 'Round 2 closest to the pin', detail: 'Hole 7 Tyler Bozynski · Hole 12 Tony Mar · Hole 14 Joe O’Connor · Hole 18 Joe O’Connor' },
+      { category: 'Round 2 skins', detail: 'Tony Monaco · Alex Nicol · Tyler Bozynski · Adam Murray · Al Cyster · Matthew Kosiba · $74 each' },
+      { category: 'Round 2 team net', detail: 'Tyler Bozynski & Adam Murray · 61 · $50/team' },
+      { category: 'Round 2 longest drive', detail: 'Hole 9 Tyler Bozynski · Hole 16 Chris Trela' },
+    ],
+    teeTimeGroups: [
+      { label: 'Saturday opening round', course: 'Huntmore Golf Club', rows: [
+        { time: '10:20 AM', players: ['Chris Trela', 'Joe O’Connor', 'Al Cyster', 'Ray Hodges'] },
+        { time: '10:30 AM', players: ['Adam Murray', 'Matthew Kosiba', 'Tony Mar', 'Tony Monaco'] },
+        { time: '10:40 AM', players: ['Raul Luna', 'Tyler Bozynski', 'Dillon Dossey', 'Alex Nicol'] },
+      ] },
+      { label: 'Saturday afternoon scramble', course: 'Huntmore Golf Club', rows: [
+        { time: '3:00 PM', players: ['Chris Trela', 'Joe O’Connor', 'Al Cyster', 'Ray Hodges'] },
+        { time: '3:10 PM', players: ['Adam Murray', 'Matthew Kosiba', 'Tony Mar', 'Tony Monaco'] },
+        { time: '3:20 PM', players: ['Raul Luna', 'Sraul Luna', 'Tyler Bozynski', 'Alex Nicol'] },
+      ] },
+      { label: 'Sunday final round', course: 'West Shore Golf & Country Club', rows: [
+        { time: '11:40 AM', players: ['Raul Luna', 'Tony Monaco', 'Ray Hodges', 'Alex Nicol'] },
+        { time: '11:50 AM', players: ['Tyler Bozynski', 'Adam Murray', 'Dillon Dossey', 'Tony Mar'] },
+        { time: '12:00 PM', players: ['Al Cyster', 'Chris Trela', 'Matthew Kosiba', 'Joe O’Connor'] },
+      ] },
+    ],
+  },
+};

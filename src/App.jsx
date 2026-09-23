@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import { ArrowRight, CalendarDays, ChevronDown, DollarSign, Flag, Mail, MapPin, Menu, RefreshCw, Trophy, X } from 'lucide-react';
-import { tournament as t } from './data/tournament';
+import { competitionYears, tournament as t } from './data/tournament';
 
-const tabs = ['Leaderboard', 'Skins', 'Pin prizes'];
+const tabs = ['Leaderboard', 'Prizes', 'Tee times'];
 const score = (n) => n === 0 ? 'E' : n > 0 ? `+${n}` : `${n}`;
 
 function useLiveScores() {
@@ -44,22 +44,31 @@ function Header() {
 
 function Scoreboard() {
   const [active, setActive] = useState('Leaderboard');
-  const { players, updated, error } = useLiveScores();
+  const years = Object.keys(competitionYears).sort((a, b) => Number(b) - Number(a));
+  const [selectedYear, setSelectedYear] = useState(years[0]);
+  const archive = competitionYears[selectedYear];
+  const { players: livePlayers, updated, error } = useLiveScores();
+  const players = selectedYear === String(t.year) && t.liveScoringUrl ? livePlayers : archive.leaderboard;
   const ranked = useMemo(() => players.map((p, i, arr) => ({ ...p, pos: i && p.toPar === arr[i-1].toPar ? `T${i}` : `${i+1}` })), [players]);
   return <section className="scoreboard section" id="scoreboard">
     <div className="section-heading light"><div><span className="eyebrow">Tournament central</span><h2>Follow the competition</h2></div>
-      <div className={`live-pill ${t.liveScoringUrl ? 'on' : ''}`}><i></i>{t.liveScoringUrl ? 'Live feed' : '2025 final'}</div>
+      <div className="year-picker"><label htmlFor="competition-year">Preview year</label><select id="competition-year" value={selectedYear} onChange={(event) => setSelectedYear(event.target.value)}>{years.map(year => <option value={year} key={year}>{competitionYears[year].label}</option>)}</select></div>
     </div>
     <div className="score-card">
-      <div className="tabs" role="tablist">{tabs.map(tab => <button key={tab} className={active === tab ? 'active' : ''} onClick={() => setActive(tab)}>{tab}</button>)}</div>
-      {active === 'Leaderboard' && <div className="table-wrap"><table><thead><tr><th>Pos</th><th>Player</th><th>HCP</th><th>R1</th><th>R2</th><th>Thru</th><th>Total</th></tr></thead><tbody>
+      <div className="competition-toolbar"><div className="tabs" role="tablist">{tabs.map(tab => <button key={tab} className={active === tab ? 'active' : ''} onClick={() => setActive(tab)}>{tab}</button>)}</div><div className={`live-pill dark ${selectedYear === String(t.year) && t.liveScoringUrl ? 'on' : ''}`}><i></i>{archive.status === 'upcoming' ? 'Details TBD' : 'Final results'}</div></div>
+      {active === 'Leaderboard' && ranked.length > 0 && <div className="table-wrap"><table><thead><tr><th>Pos</th><th>Player</th><th>HCP</th><th>R1</th><th>R2</th><th>Thru</th><th>Total</th></tr></thead><tbody>
         {ranked.map((p, i) => <tr key={p.name} className={i === 0 ? 'leader' : ''}><td><b>{p.pos}</b></td><td><strong>{p.name}</strong>{p.note && <small>{p.note}</small>}</td><td>{p.handicap}</td><td>{p.round1 || '—'}</td><td>{p.round2 || '—'}</td><td>{p.thru || 'F'}</td><td className={p.toPar < 0 ? 'under' : ''}><b>{score(p.toPar)}</b></td></tr>)}
       </tbody></table></div>}
-      {active === 'Skins' && <div className="award-grid">{t.skins.map((s, i) => <article key={i}><div className="hole"><span>Hole</span>{s.hole}</div><div><small>{s.round}</small><h3>{s.player}</h3><p>Score {s.score} · {s.value}</p></div></article>)}</div>}
-      {active === 'Pin prizes' && <div className="award-grid">{t.pinWinners.map((p, i) => <article key={i}><div className="hole"><span>Hole</span>{p.hole}</div><div><small>{p.round}</small><h3>{p.player}</h3><p>Closest to the pin</p></div></article>)}</div>}
-      <div className="score-note"><RefreshCw size={14}/>{error ? 'Using saved scores — live feed could not be reached.' : updated ? `Updated ${updated.toLocaleTimeString([], {hour:'numeric', minute:'2-digit'})}` : 'Scores shown are the 2025 final results.'}</div>
+      {active === 'Leaderboard' && ranked.length === 0 && <EmptyState title={`${selectedYear} leaderboard`} text="Player standings will appear here when tournament scoring begins."/>}
+      {active === 'Prizes' && <div className="prize-list">{archive.prizes.map((prize, i) => <article className={prize.winner ? 'featured' : ''} key={`${prize.category}-${i}`}><span>{String(i + 1).padStart(2, '0')}</span><div><h3>{prize.category}</h3><p>{prize.detail}</p></div></article>)}</div>}
+      {active === 'Tee times' && <div className="tee-time-archive">{archive.teeTimeGroups.map(group => <section key={group.label}><div className="tee-time-heading"><div><small>{group.course}</small><h3>{group.label}</h3></div><span>{group.rows.length ? `${group.rows.length} groups` : 'TBD'}</span></div>{group.rows.length > 0 ? <div className="table-wrap"><table className="tee-time-table"><thead><tr><th>Time</th><th>Player 1</th><th>Player 2</th><th>Player 3</th><th>Player 4</th></tr></thead><tbody>{group.rows.map(row => <tr key={`${group.label}-${row.time}`}><td><b>{row.time}</b></td>{row.players.map(player => <td key={player}>{player}</td>)}</tr>)}</tbody></table></div> : <p className="tbd-row">Tee times and pairings will be posted when they are confirmed.</p>}</section>)}</div>}
+      <div className="score-note"><RefreshCw size={14}/>{selectedYear === String(t.year) && t.liveScoringUrl ? (error ? 'Using saved scores — live feed could not be reached.' : updated ? `Updated ${updated.toLocaleTimeString([], {hour:'numeric', minute:'2-digit'})}` : 'Connecting to the live score feed…') : archive.status === 'upcoming' ? `${selectedYear} information will be updated as details are confirmed.` : `${selectedYear} final tournament archive.`}</div>
     </div>
   </section>;
+}
+
+function EmptyState({ title, text }) {
+  return <div className="empty-state"><Trophy/><h3>{title}</h3><p>{text}</p></div>;
 }
 
 export default function App() {
