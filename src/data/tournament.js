@@ -2,9 +2,10 @@
 export const tournament = {
   year: 2026,
   edition: '5th Annual',
-  status: 'Registration Open',
+  status: 'In Progress',
   registrationOpen: false,
-  registrationUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSe0DMNF6zFmXJ2kWulpGRmzHR3OgvROvd_Btg-9K-AwYajXCA/viewform?usp=publish-editor',
+  // registrationUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSe0DMNF6zFmXJ2kWulpGRmzHR3OgvROvd_Btg-9K-AwYajXCA/viewform?usp=publish-editor',
+  registrationUrl: 'https://cutt.ly/EyvMbPTa',
   organizerEmail: 'juniorluna2@gmail.com',
   // Optional: paste a published CSV URL from Google Sheets for live scores.
   // Required headers: name,handicap,round1,round2,thru
@@ -13,7 +14,7 @@ export const tournament = {
   event: {
     dates: 'September 25th - 27th, 2026',
     location: 'Southeast Michigan',
-    price: 'TBD tournament entry',
+    price: '$120',
     format: '36 holes · 80% handicap · Individual Net Stroke Play',
   },
   schedule: [
@@ -40,16 +41,6 @@ export const tournament = {
     { title: 'Longest drive', text: 'Two designated holes each round — one on each nine.' },
     { title: 'Team net', text: 'Committee-selected pairs compete for the lowest combined net score.' },
     // { title: 'Two-person scramble', text: 'Saturday afternoon’s nine-hole side event. Pick your partner and go low.' },
-  ],
-  leaderboard: [
-    { name: 'Chris Trela', handicap: 7.0, round1: 73, round2: 71, total: 144, toPar: 1, note: 'Won playoff' },
-    { name: 'Tyler Bozynski', handicap: 2.4, round1: 75, round2: 69, total: 144, toPar: 1 },
-    { name: 'Matthew Kosiba', handicap: 6.1, round1: 72, round2: 75, total: 147, toPar: 4 },
-    { name: 'Adam Murray', handicap: 4.4, round1: 76, round2: 72, total: 148, toPar: 5 },
-    { name: 'Al Cyster', handicap: 1.7, round1: 71, round2: 77, total: 148, toPar: 5 },
-    { name: "Joe O'Connor", handicap: 5.0, round1: 73, round2: 77, total: 150, toPar: 7 },
-    { name: 'Dillon Dossey', handicap: 1.0, round1: 76, round2: 77, total: 153, toPar: 10 },
-    { name: 'Raul Luna', handicap: 2.5, round1: 79, round2: 75, total: 154, toPar: 11 },
   ],
   skins: [
     { round: 'Round 1', hole: 2, player: 'Matthew Kosiba', score: 3, value: '$88' },
@@ -81,7 +72,17 @@ export const tournament = {
 // COMPETITION ARCHIVE — add a new year here to make it appear in the dropdown.
 export const competitionYears = {
   2026: {
-    status: 'upcoming', label: '2026 Tournament', leaderboard: [],
+    status: 'In Progress', label: '2026 Tournament', leaderboard: [],
+    leaderboard: [
+      { name: 'Chris Trela', handicap: 3.9, round1: 71, round2: 71, total: 142, toPar: 0 },
+      { name: 'Al Cyster', handicap: 1.4, round1: 71, round2: 71, total: 142, toPar: 0 },
+      { name: 'Raul Luna', handicap: 2.5, round1: 71, round2: 71, total: 142, toPar: 0 },
+      { name: 'Trevor Monaco', handicap: 6.1, round1: 71, round2: 71, total: 142, toPar: 0 },
+      { name: 'Tony Mar', handicap: 2.8, round1: 71, round2: 71, total: 142, toPar: 0 },
+      { name: 'Jim Warrington', handicap: 4.0, round1: 71, round2: 71, total: 142, toPar: 0 },
+      { name: 'Ray Hodges', handicap: 9.0, round1: 71, round2: 71, total: 142, toPar: 0 },
+      { name: 'Steve Bernaiche', handicap: 9.0, round1: 71, round2: 71, total: 142, toPar: 0 },
+    ],
     prizes: [
       { category: 'Tournament champion', detail: 'Winner and payout to be announced' },
       { category: 'Net skins', detail: 'Hole winners and skin values to be announced' },
@@ -91,8 +92,8 @@ export const competitionYears = {
     ],
     teeTimeGroups: [
       { label: 'Friday opening round', course: 'West Shore Golf & Country Club', rows: [
-        { time: '2:00 PM', players: [ 'Golfer 1', 'Golfer 2', 'Golfer 3', 'Golfer 4']},
-        { time: '2:10 PM', players: [ 'Golfer 1', 'Golfer 2', 'Golfer 3', 'Golfer 4']},
+        { time: '2:00 PM', players: [ 'Tony Mar', 'Al Cyster', 'Ray Hodges']},
+        { time: '2:10 PM', players: [ 'Chris Trela', 'Steve Bernaiche', 'Raul Luna',]},
       ]},
       { label: 'Sunday final round', course: 'West Shore Golf & Country Club', rows: [
         { time: '12:10 PM', players: [ 'Golfer 1', 'Golfer 2', 'Golfer 3', 'Golfer 4']},
@@ -101,7 +102,17 @@ export const competitionYears = {
     ],
   },
   2025: {
-    status: 'final', label: '2025 Final Results', leaderboard: tournament.leaderboard,
+    status: 'final', label: '2025 Final Results',
+    leaderboard: [
+      { name: 'Chris Trela', handicap: 7.0, round1: 73, round2: 71, total: 144, toPar: 1, note: 'Won playoff' },
+      { name: 'Tyler Bozynski', handicap: 2.4, round1: 75, round2: 69, total: 144, toPar: 1 },
+      { name: 'Matthew Kosiba', handicap: 6.1, round1: 72, round2: 75, total: 147, toPar: 4 },
+      { name: 'Adam Murray', handicap: 4.4, round1: 76, round2: 72, total: 148, toPar: 5 },
+      { name: 'Al Cyster', handicap: 1.7, round1: 71, round2: 77, total: 148, toPar: 5 },
+      { name: "Joe O'Connor", handicap: 5.0, round1: 73, round2: 77, total: 150, toPar: 7 },
+      { name: 'Dillon Dossey', handicap: 1.0, round1: 76, round2: 77, total: 153, toPar: 10 },
+      { name: 'Raul Luna', handicap: 2.5, round1: 79, round2: 75, total: 154, toPar: 11 },
+    ],
     prizes: [
       { category: 'Tournament champion', detail: 'Chris Trela · 144 (+2) · $140', winner: true },
       { category: 'Round 1 closest to the pin', detail: 'Hole 3 Raul Luna · Hole 7 Al Cyster · Hole 12 Chris Trela · Hole 15 Tony Monaco' },
@@ -123,7 +134,7 @@ export const competitionYears = {
       { label: 'Saturday afternoon scramble', course: 'Huntmore Golf Club', rows: [
         { time: '3:00 PM', players: ['Chris Trela', 'Joe O’Connor', 'Al Cyster', 'Ray Hodges'] },
         { time: '3:10 PM', players: ['Adam Murray', 'Matthew Kosiba', 'Tony Mar', 'Tony Monaco'] },
-        { time: '3:20 PM', players: ['Raul Luna', 'Sraul Luna', 'Tyler Bozynski', 'Alex Nicol'] },
+        { time: '3:20 PM', players: ['Raul Luna', 'Raul Luna', 'Tyler Bozynski', 'Alex Nicol'] },
       ] },
       { label: 'Sunday final round', course: 'West Shore Golf & Country Club', rows: [
         { time: '11:40 AM', players: ['Raul Luna', 'Tony Monaco', 'Ray Hodges', 'Alex Nicol'] },
