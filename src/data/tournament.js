@@ -85,7 +85,7 @@ export const competitionYears = {
     ],
     prizes: [
       { category: 'Tournament champion', detail: 'Winner and payout to be announced' },
-      { category: 'Round 1 Net skins', detail: 'Tony Mar · Raul Luna · Chris Trela · Steve Bernaiche · Ray Hodges · $46/skin' },
+      { category: 'Round 1 Net skins', detail: 'Tony Mar · Raul Luna · Chris Trela · Steve Bernaiche (2) · Ray Hodges · $46/skin' },
       { category: 'Round 1 Closest to the pin', detail: 'Al Cyster (7) · Ray Hodges (18) · $20/CTP' },
       { category: 'Round 1 Team Gross', detail: 'Raul Luna · Chris Trela · Steve Bernaiche · $30' },
     ],
